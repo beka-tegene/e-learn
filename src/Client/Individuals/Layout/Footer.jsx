@@ -27,9 +27,9 @@ class Footer extends React.Component {
                     </p>
                     <ul className="list-wrap m-0 p-0">
                       <li className="address">
-                        Addis Ababa, Ethiopia, Sengatera traders bldg 5th floor
+                        Addis Ababa, Ethiopia, 
                       </li>
-                      <li className="number">(+251) 946-545-454</li>
+                      <li className="number">(+251) 965-363-434</li>
                       <li className="socials">
                         <NavLink to="#">
                           <MdFacebook style={{ fontSize: "25px" }} />

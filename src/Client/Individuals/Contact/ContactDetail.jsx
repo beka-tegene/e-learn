@@ -50,8 +50,7 @@ class ContactDetail extends Component {
                       </div>
                       <div className="content">
                         <p>
-                          Addis Ababa, Ethiopia <br /> Sengatera traders bldg
-                          5th floor
+                          Addis Ababa, Ethiopia <br />
                         </p>
                       </div>
                     </li>
@@ -60,7 +59,7 @@ class ContactDetail extends Component {
                         <MdPhone />
                       </div>
                       <div className="content">
-                        <a href="tel:0123456789">(+251) 946-545-454</a>
+                        <a href="tel:0123456789">(+251) 965-363-434</a>
                       </div>
                     </li>
                     <li>
@@ -69,7 +68,7 @@ class ContactDetail extends Component {
                       </div>
                       <div className="content">
                         <a href="mailto:info@gmail.com">
-                          info@kegeberewtech.com
+                          info@fancycateringacademy.com
                         </a>
                       </div>
                     </li>

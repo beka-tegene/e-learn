@@ -67,10 +67,10 @@ const Checkout = () => {
         const arifPayUrl = `${back_base_url}payment/arif-pay/pay`;
         const body = {
             order_id: id,
-            cancelUrl: `https://kegeberewuniversity.com/CourseDetail/${slug}`,
-            errorUrl: `https://kegeberewuniversity.com/CourseDetail/${slug}`,
+            cancelUrl: `https://e-learning-nine-gold.vercel.app/CourseDetail/${slug}`,
+            errorUrl: `https://e-learning-nine-gold.vercel.app/CourseDetail/${slug}`,
             notifyUrl: `${back_base_url}`,
-            successUrl: `https://kegeberewuniversity.com/lesson/${slug}`,
+            successUrl: `https://e-learning-nine-gold.vercel.app/lesson/${slug}`,
             items: [
                 {
                     name: filterCourseById?.courseName,
@@ -199,7 +199,7 @@ const Checkout = () => {
                       <span className="text">Pay with CHAPA</span>
                     </NavLink>
                   </div>
-                  <div className="header__search w-100  d-xl-block pb-2">
+                  {/* <div className="header__search w-100  d-xl-block pb-2">
                     <NavLink
                       className="tg-button-wrap btn "
                       style={{
@@ -219,7 +219,7 @@ const Checkout = () => {
                       />
                       <span className="text">Pay with Arif Pay</span>
                     </NavLink>
-                  </div>
+                  </div> */}
                   {/* <div className="header__search w-100  d-xl-block">
                     <NavLink
                       style={{

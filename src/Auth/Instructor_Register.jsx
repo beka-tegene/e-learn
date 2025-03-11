@@ -172,7 +172,7 @@ const Instructor_Register = () => {
               >
                 Instructor
               </button>
-              <button
+              {/* <button
                 style={{
                   width: "100%",
                   borderRadius: "4px",
@@ -186,7 +186,7 @@ const Instructor_Register = () => {
                 onClick={() => navigate("/accounts/tutor")}
               >
                 Tutors
-              </button>
+              </button> */}
             </div>
           </div>
           {/* <h3 className="text-3xl font-bold">SIGN UP</h3> */}

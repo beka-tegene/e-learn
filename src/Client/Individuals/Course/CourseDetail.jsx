@@ -146,7 +146,7 @@ const CourseDetail = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Kegeberew | Detail Course";
+    document.title = "Fancy Catering Academy | Detail Course";
   }, [pathname]);
   const countLesson = filterCourse?.chapter?.reduce(
     (total, item) => total + (item?.LessonFile?.length || 0),

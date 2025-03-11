@@ -36,15 +36,16 @@ class CategoriesArea extends React.Component {
                   </h2>
                 </div>
                 <p>
-                  Fancy Catering Academy offers a diverse range of online courses
-                  tailored to meet the needs of learners worldwide. Our courses
-                  are designed and delivered by experts in their respective
-                  fields, ensuring high-quality education accessible to all.
-                  Whether you're looking to enhance your skills, pursue a new
-                  career path, or simply indulge your curiosity, Kegeberew
-                  University's online courses provide flexible learning options
-                  to suit your schedule and goals. Explore our offerings today
-                  and embark on a journey of knowledge and discovery.
+                  Fancy Catering Academy offers a diverse range of online
+                  courses tailored to meet the needs of learners worldwide. Our
+                  courses are designed and delivered by experts in their
+                  respective fields, ensuring high-quality education accessible
+                  to all. Whether you're looking to enhance your skills, pursue
+                  a new career path, or simply indulge your curiosity, Fancy
+                  Catering Academy University's online courses provide flexible
+                  learning options to suit your schedule and goals. Explore our
+                  offerings today and embark on a journey of knowledge and
+                  discovery.
                 </p>
               </div>
             </div>
