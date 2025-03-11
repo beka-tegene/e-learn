@@ -1,0 +1,60 @@
+name: Build and Deploy MDS
+
+on:
+  push:
+    branches:
+        - main
+  pull_request:
+     branches:
+        - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18.17.0'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build React app
+        run: npm run build
+    
+      - name: Build Docker Image
+        run: |
+          sudo docker build -t alegnta/e-learning-front .
+          echo "rn3B6fAAYX.!xZV" | docker login --username alegnta --password-stdin
+
+      - name: Push Docker Image
+        run: docker push alegnta/e-learning-front
+
+  deploy:
+      needs: build
+      runs-on: ubuntu-latest
+  
+      steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up SSH agent
+        uses: webfactory/ssh-agent@v0.5.4
+        with:
+          ssh-private-key: ${{ secrets.VPS_KEY }}
+  
+      - name: Pull Docker image and deploy on VPS
+        run: |
+          ssh -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@147.182.241.168 << 'EOF'
+          docker login -u "${{ secrets.DOCKER_USERNAME }}" -p "${{ secrets.DOCKER_PASSWORD }}"
+          docker stop elearning || true
+          docker rm elearning || true
+          docker rmi alegnta/e-learning-front:latest || true
+          docker pull alegnta/e-learning-front:latest
+          docker run -d --name elearning -p 4173:4173 alegnta/e-learning-front:latest
+          EOF

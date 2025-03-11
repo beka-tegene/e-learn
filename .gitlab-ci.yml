@@ -1,0 +1,25 @@
+#DONOT MODIFY THIS FILE
+#change
+stages:
+  - containerization
+  - deploy
+
+#main | PRODUCTION
+containerization:
+  stage: containerization
+  tags:
+    - pbeth-runner
+  only:
+    - main
+  script:
+    - docker build --no-cache --build-arg NODE_ENV=production -t lms_front_img .
+deployment:
+  stage: deploy
+  tags:
+    - pbeth-runner
+  only:
+    - main
+  script:
+    - docker stop lms_front_container || true
+    - docker rm lms_front_container || true
+    - docker run -d --restart unless-stopped --name=lms_front_container -p 8585:4173 lms_front_img
