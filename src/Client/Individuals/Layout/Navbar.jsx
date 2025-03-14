@@ -1,7 +1,7 @@
 import { Drawer, Menu, MenuItem } from "@mui/material";
 import React, { useEffect } from "react";
 import { NavLink, useMatch, useNavigate } from "react-router-dom";
-import logo from "/assets/img/logo1.jpg";
+import logo from "/assets/img/logo1.png";
 import { MdAccountCircle, MdArrowDropDown } from "react-icons/md";
 import Cookies from "js-cookie";
 import jwt_decode from "jwt-decode";
@@ -34,9 +34,9 @@ const Navbar = () => {
   };
   const individualsAll =
     useMatch("/find/instructor") ||
-    useMatch("/find/tutor") ||
-    useMatch("/find/instructor/:id") ||
-    useMatch("/find/tutor/:id");
+    useMatch("/find/instructor/:id");
+    // useMatch("/find/tutor") ||
+    // useMatch("/find/tutor/:id");
   const individuals = useMatch("/");
   const courses = useMatch("/courses") || useMatch("/CourseDetail/:slug");
   const instructor = useMatch("/instructor");
@@ -297,11 +297,11 @@ const Navbar = () => {
           <span>HOME</span>
         </NavLink>
         <NavLink
-          to="/find/tutor"
+          to="/find/instructor"
           style={{ ...linkStyle, color: individualsAll ? "#589516" : "" }}
         >
           <FaChalkboardTeacher size={18} />
-          <span>TUTOR</span>
+          <span>Instructor</span>
         </NavLink>
         <NavLink
           to="/courses"

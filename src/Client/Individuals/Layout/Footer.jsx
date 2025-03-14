@@ -1,5 +1,5 @@
 import React from "react";
-import image1 from "/assets/img/logo1.jpg";
+import image1 from "/assets/img/logo1.png";
 import { MdFacebook, MdWhatsapp } from "react-icons/md";
 import { BsLinkedin, BsTwitterX } from "react-icons/bs";
 import { FaWhatsappSquare, FaYoutube } from "react-icons/fa";

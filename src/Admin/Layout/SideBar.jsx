@@ -12,7 +12,7 @@ import { FiLogOut, FiUsers } from "react-icons/fi";
 import { FaBook, FaUsers } from "react-icons/fa";
 import { GrTransaction } from "react-icons/gr";
 import { Drawer } from "@mui/material";
-import logo from "/assets/img/logo1.jpg";
+import logo from "/assets/img/logo1.png";
 const SideBar = ({ drawerOpen, setDrawerOpen }) => {
   const navigate = useNavigate();
   const [name, setName] = useState("");
@@ -198,25 +198,7 @@ const SideBar = ({ drawerOpen, setDrawerOpen }) => {
                         <FaUsers /> Teacher
                       </li>
                     </NavLink>
-                    <NavLink
-                      style={{
-                        // background: tutor ? "#F1F5F9" : "",
-                        color: tutor ? "#DFA035" : "",
-                        borderRadius: "10px",
-                      }}
-                      to={"/admin/tutor_list"}
-                    >
-                      <li
-                        style={{
-                          padding: "8px 15px",
-                          display: "flex",
-                          gap: "10px",
-                          alignItems: "center",
-                        }}
-                      >
-                        <FaUsers /> Tutor
-                      </li>
-                    </NavLink>
+                    
                   </ul>
                 )}
 
@@ -407,25 +389,7 @@ const SideBar = ({ drawerOpen, setDrawerOpen }) => {
                     <FaUsers /> Teacher
                   </li>
                 </NavLink>
-                <NavLink
-                  style={{
-                    // background: tutor ? "#F1F5F9" : "",
-                    color: tutor ? "#DFA035" : "",
-                    borderRadius: "10px",
-                  }}
-                  to={"/admin/tutor_list"}
-                >
-                  <li
-                    style={{
-                      padding: "8px 15px",
-                      display: "flex",
-                      gap: "10px",
-                      alignItems: "center",
-                    }}
-                  >
-                    <FaUsers /> Tutor
-                  </li>
-                </NavLink>
+               
               </ul>
             )}
 

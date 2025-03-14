@@ -312,8 +312,8 @@ function App() {
         />
         <Route path="/find/instructor" element={<Instructor />} />
         <Route path="/find/instructor/:id" element={<InstructorDetail />} />
-        <Route path="/find/tutor" element={<Tutor />} />
-        <Route path="/find/tutor/:id" element={<TutorDetail />} />
+        {/* <Route path="/find/tutor" element={<Tutor />} /> */}
+        {/* <Route path="/find/tutor/:id" element={<TutorDetail />} /> */}
 
         {/* Client Routes - Businesses */}
         <Route

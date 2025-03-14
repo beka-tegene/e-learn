@@ -187,9 +187,9 @@ const Checkout = () => {
                         alignItems: "center",
                         gap: "1rem",
                       }}
-                      onClick={() => {
-                        chapaHandle();
-                      }}
+                      onClick={() => 
+                        chapaHandle
+                      }
                     >
                       <img
                         src={chapalogo}
@@ -217,7 +217,7 @@ const Checkout = () => {
                         alt="arifpay logo"
                         style={{ width: "30px" }}
                       />
-                      <span className="text">Pay with Arif Pay</span>
+                      <span className="text"> Arif Pay</span>
                     </NavLink>
                   </div> */}
                   {/* <div className="header__search w-100  d-xl-block">

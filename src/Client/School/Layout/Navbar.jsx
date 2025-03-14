@@ -1,7 +1,7 @@
 import { Box, Modal } from "@mui/material";
 import React from "react";
 import { NavLink, useMatch } from "react-router-dom";
-import logo from "/assets/img/logo1.jpg";
+import logo from "/assets/img/logo1.png";
 import { MdArrowDropDown } from "react-icons/md";
 
 const style = {

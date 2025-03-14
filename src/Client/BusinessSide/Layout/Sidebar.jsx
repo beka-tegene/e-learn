@@ -5,7 +5,7 @@ import { NavLink, useMatch, useNavigate } from "react-router-dom";
 import { FiLogOut } from "react-icons/fi";
 import Cookies from "js-cookie";
 import jwt_decode from "jwt-decode";
-import logo from "/assets/img/logo1.jpg";
+import logo from "/assets/img/logo1.png";
 import { Drawer } from "@mui/material";
 import axios from "axios";
 import { back_base_url } from "../../../util/config";

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import logo from "/assets/img/logo1.jpg";
+import logo from "/assets/img/logo1.png";
 import {
   Avatar,
   Divider,

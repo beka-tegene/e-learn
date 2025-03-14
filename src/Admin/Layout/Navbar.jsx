@@ -20,7 +20,7 @@ import Cookies from "js-cookie";
 import jwt_decode from "jwt-decode";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserData } from "../../Store/Hooks/UserHook";
-import logo from "/assets/img/logo1.jpg";
+import logo from "/assets/img/logo1.png";
 import { useNavigate } from "react-router-dom";
 const Navbar = ({ setDrawerOpen, drawerOpen }) => {
   const navigate = useNavigate();

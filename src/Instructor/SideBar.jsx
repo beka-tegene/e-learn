@@ -10,7 +10,7 @@ import jwt_decode from "jwt-decode";
 import { NavLink, useMatch, useNavigate } from "react-router-dom";
 import { FiLogOut } from "react-icons/fi";
 import { Drawer, IconButton } from "@mui/material";
-import logo from "/assets/img/logo1.jpg";
+import logo from "/assets/img/logo1.png";
 import axios from "axios";
 import { back_base_url } from "../util/config";
 import { toast } from "react-toastify";

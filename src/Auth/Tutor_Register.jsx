@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "/assets/img/logo1.jpg";
+import logo from "/assets/img/logo1.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";

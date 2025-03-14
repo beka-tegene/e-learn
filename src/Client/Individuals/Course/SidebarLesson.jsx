@@ -5,7 +5,7 @@ import { MdLogout } from "react-icons/md";
 import { PiBookOpenTextFill } from "react-icons/pi";
 import { NavLink, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
-import logo from "/assets/img/logo1.jpg";
+import logo from "/assets/img/logo1.png";
 import axios from "axios";
 import { back_base_url } from "../../../util/config";
 import { toast } from "react-toastify";
@@ -115,7 +115,7 @@ const SidebarLesson = () => {
           <FaBook size={20} />
           <span>COURSE</span>
         </NavLink>
-        <NavLink
+        {/* <NavLink
           to="/find/tutor"
           style={linkStyle}
           activeStyle={{ backgroundColor: linkHoverStyle.backgroundColor }}
@@ -129,7 +129,7 @@ const SidebarLesson = () => {
         >
           <FaChalkboardTeacher size={20} />
           <span>TUTOR</span>
-        </NavLink>
+        </NavLink> */}
           <>
             <NavLink
               to="/account/profile"
