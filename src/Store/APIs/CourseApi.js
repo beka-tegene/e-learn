@@ -50,9 +50,10 @@ export const setPayment = async (data) => {
     axios
       .post(chapaPayUrl, body)
       .then((data) => {
+        
         toast.success("Redirecting to chapa checkout page");
         setTimeout(() => {
-          window.open(data.data.url, "_blank");
+          window.open(data?.data?.data?.checkout_url, "_blank");
         }, 2000);
       })
       .catch((error) => {

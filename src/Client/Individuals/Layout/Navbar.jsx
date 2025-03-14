@@ -236,26 +236,9 @@ const Navbar = () => {
                         </NavLink>
                       </li>
                       <li>
-                        <NavLink to="#">
-                          Instructors <MdArrowDropDown />
+                        <NavLink to="/find/instructor">
+                          Instructors 
                         </NavLink>
-                        <ul className="submenu">
-                          {!token && (
-                            <li className="drop">
-                              <NavLink to={"/accounts/tutor"}>
-                                Become tutor
-                              </NavLink>
-                            </li>
-                          )}
-                          <li>
-                            <NavLink to="/find/instructor">
-                              All Instructor
-                            </NavLink>
-                          </li>
-                          <li className="drop">
-                            <NavLink to={"/find/tutor"}>All tutor</NavLink>
-                          </li>
-                        </ul>
                       </li>
                       <li>
                         <NavLink
@@ -290,9 +273,9 @@ const Navbar = () => {
                     <div className="header__search w-fit d-none d-xl-block">
                       <NavLink
                         className="tg-button-wrap btn tg-svg"
-                        to={"/accounts/instructor"}
+                        to={"/courses"}
                       >
-                        <span className="text">Become instructor</span>
+                        <span className="text">Courses</span>
                       </NavLink>
                     </div>
                   )}
