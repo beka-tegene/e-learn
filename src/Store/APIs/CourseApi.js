@@ -68,7 +68,7 @@ export const setPaymentSantim = async () => {
   try {
     axios.defaults.withCredentials = true;
     const santimPayUrl =
-      "https://girma.letsgotnt.com/payment/santim-pay/pay";
+      "https://update.fancypastryacademy.com/payment/santim-pay/pay";
     const body = {
       reason: "Paying to course that this",
       total: 1,

@@ -31,7 +31,7 @@ export const getAllUserCourse = async (data) => {
         },
       }
     );
-    return response.data;
+    return response;
   } catch (error) {
     toast.error(error.response.data.error);
     throw error;

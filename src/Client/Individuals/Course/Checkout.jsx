@@ -7,15 +7,13 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Cookies from "js-cookie";
 import jwt_decode from "jwt-decode";
-import chapalogo from "/assets/img/chapa.png";
-import arifpay from "/assets/img/arifpay.png";
 import axios from "axios";
 import { back_base_url } from "../../../util/config";
 function decrypt(text) {
   return atob(text);
 }
 const Checkout = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const token = Cookies.get("token");
   let userId;
 
@@ -52,7 +50,11 @@ const Checkout = () => {
 
   const chapaHandle = async () => {
     try {
-      dispatch(getPayment({ data: { order_id: id } }));
+      const response = await axios.post(
+        `${back_base_url}api/v1/orders`,
+        { userId, orderId: id }
+      );
+      toast.success(response?.data?.message);
     } catch (error) {
       console.error("Error while getting payment:", error);
     }
@@ -63,35 +65,34 @@ const Checkout = () => {
   // };
   const handleArifPay = async () => {
     try {
-        axios.defaults.withCredentials = true;
-        const arifPayUrl = `${back_base_url}payment/arif-pay/pay`;
-        const body = {
-            order_id: id,
-            cancelUrl: `https://e-learning-nine-gold.vercel.app/CourseDetail/${slug}`,
-            errorUrl: `https://e-learning-nine-gold.vercel.app/CourseDetail/${slug}`,
-            notifyUrl: `${back_base_url}`,
-            successUrl: `https://e-learning-nine-gold.vercel.app/lesson/${slug}`,
-            items: [
-                {
-                    name: filterCourseById?.courseName,
-                    price: filterCourseById?.price,
-                    PhoneNumber: filterCourseById?.PhoneNumber,
-                    quantity: 1,
-                },
-            ],
-        };
-        const response = await axios.post(arifPayUrl, body);
-        console.log(response);
-        toast.success("Redirecting to Arif Pay checkout page ");
-        setTimeout(() => {
-          navigate(response.data.url);
-        }, 2000);
+      axios.defaults.withCredentials = true;
+      const arifPayUrl = `${back_base_url}payment/arif-pay/pay`;
+      const body = {
+        order_id: id,
+        cancelUrl: `https://e-learning-nine-gold.vercel.app/CourseDetail/${slug}`,
+        errorUrl: `https://e-learning-nine-gold.vercel.app/CourseDetail/${slug}`,
+        notifyUrl: `${back_base_url}`,
+        successUrl: `https://e-learning-nine-gold.vercel.app/lesson/${slug}`,
+        items: [
+          {
+            name: filterCourseById?.courseName,
+            price: filterCourseById?.price,
+            PhoneNumber: filterCourseById?.PhoneNumber,
+            quantity: 1,
+          },
+        ],
+      };
+      const response = await axios.post(arifPayUrl, body);
+      console.log(response);
+      toast.success("Redirecting to Arif Pay checkout page ");
+      setTimeout(() => {
+        navigate(response.data.url);
+      }, 2000);
     } catch (error) {
-        console.error("Error in handleArifPay:", error);
-        toast.error("Error while making a payment with Arif Pay ");
+      console.error("Error in handleArifPay:", error);
+      toast.error("Error while making a payment with Arif Pay ");
     }
-};
-
+  };
 
   return (
     <div className="checkoutarea sp_bottom_100 sp_top_100">
@@ -175,65 +176,21 @@ const Checkout = () => {
                     </table>
                   </div>
                 </form>
-                <div className="header__bottom-right pl-30 ">
-                  <div className="header__search w-100  d-xl-block pb-2">
-                    <NavLink
-                      className="tg-button-wrap btn "
-                      style={{
-                        backgroundColor: "#0D1B34",
-                        color: "#FFFFFF",
-                        width: "100%",
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "1rem",
-                      }}
-                      onClick={() => 
-                        chapaHandle
-                      }
-                    >
-                      <img
-                        src={chapalogo}
-                        alt="chapa logo"
-                        style={{ width: "50px" }}
-                      />
-                      <span className="text">Pay with CHAPA</span>
-                    </NavLink>
-                  </div>
-                  {/* <div className="header__search w-100  d-xl-block pb-2">
-                    <NavLink
-                      className="tg-button-wrap btn "
-                      style={{
-                        backgroundColor: "#0D1B34",
-                        color: "#FFFFFF",
-                        width: "100%",
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "2rem",
-                      }}
-                      onClick={() => handleArifPay()}
-                    >
-                      <img
-                        src={arifpay}
-                        alt="arifpay logo"
-                        style={{ width: "30px" }}
-                      />
-                      <span className="text"> Arif Pay</span>
-                    </NavLink>
-                  </div> */}
-                  {/* <div className="header__search w-100  d-xl-block">
-                    <NavLink
-                      style={{
-                        backgroundColor: "#D3AF35",
-                        color: "#FFFFFF",
-                        width: "100%",
-                      }}
-                      className="tg-button-wrap btn "
-                      onClick={() => santimHandle()}
-                    >
-                      <span className="text">Pay with SANTIMPAY</span>
-                    </NavLink>
-                  </div> */}
-                </div>
+                <button
+                  className="tg-button-wrap btn "
+                  style={{
+                    backgroundColor: "#0D1B34",
+                    color: "#FFFFFF",
+                    width: "100%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "1rem",
+                  }}
+                  onClick={chapaHandle}
+                >
+                  <span className="text">Enroll</span>
+                </button>
               </div>
             </div>
           </div>

@@ -4,7 +4,6 @@ import { Avatar, Rating, Skeleton } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import parse from "html-react-parser";
-import { NavLink } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import Cookies from "js-cookie";
 import { ToastContainer, toast } from "react-toastify";
@@ -65,7 +64,8 @@ const CourseDetail = () => {
       console.error(error);
     }
   };
-
+  console.log(filterCourse);
+  
   const FilterUsers = filterCourse?.userWhoHasBought?.filter(
     (item) => item?._id === userId
   );
@@ -86,7 +86,9 @@ const CourseDetail = () => {
             ],
             userId,
           });
-          navigate(`/checkout/${encrypt(decryptedId)}/${res.data.order._id}`);
+          console.log(res);
+          toast.success("Enroll Successfully please wait for approval");
+          // navigate(`/checkout/${encrypt(decryptedId)}/${res.data.order._id}`);
         } catch (error) {
           toast.error("something went wrong");
         }

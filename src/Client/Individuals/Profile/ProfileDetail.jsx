@@ -76,7 +76,8 @@ const CourseContent = ({ dataHandler }) => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.UserHook.OutputUsers);
   const usersCourse = useSelector((state) => state.UserHook.OutputUserCourses);
-
+  console.log(usersCourse);
+  
   const token = Cookies.get("token");
   const decodedToken = jwt_decode(token);
   const userId = decodedToken?.userId;
@@ -544,117 +545,6 @@ const CourseContent = ({ dataHandler }) => {
                             />
                           )}
                         </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="col-xl-9 col-lg-9 col-md-12" style={{ width: "100%" }}>
-        <div className="dashboard__content__wraper">
-          <div className="dashboard__section__title">
-            <h4>My Tutor</h4>
-          </div>
-          <div className="row">
-            <div
-              className="tab-content tab__content__wrapper aos-init aos-animate"
-              id="myTabContent"
-              data-aos="fade-up"
-            >
-              <div
-                className="tab-pane fade active show"
-                id="projects__one"
-                role="tabpanel"
-                aria-labelledby="projects__one"
-              >
-                <div
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns:
-                      "repeat(auto-fill, minmax(250px, 1fr))",
-                    gap: "1rem",
-                    padding: "2rem 0 ",
-                    alignItems: "start",
-                    width: "100%",
-                  }}
-                >
-                  {instructorTutor?.map((item, index) => (
-                    <div
-                      key={index}
-                      style={{
-                        padding: "20px",
-                        background: "#FFFFFF",
-                        borderRadius: "5px",
-                        boxShadow: "0 1px 2px rgba(0,0,0,0.1)",
-                        display: "flex",
-                        flexDirection: "column",
-                        gap: "5px",
-                      }}
-                    >
-                      <div className="d-flex align-items-center justify-content-end">
-                        <div className="d-flex align-items-center gap-2">
-                          <NavLink
-                            to={`/kts/room/${item?.roomId}`}
-                            style={{
-                              fontSize: "12px",
-                              background: "#DAA029",
-                              padding: "5px 20px",
-                              borderRadius: "4px",
-                              color: "#FFFFFF",
-                              textTransform: "uppercase",
-                            }}
-                          >
-                            Start Tutor
-                          </NavLink>
-                        </div>
-                      </div>
-                      <h4>{item.className}</h4>
-                      <span>{item.availableTime[0].timeSlots[0]}</span>
-                      <span>Grade {item.grade}</span>
-                      <span>Capacity {item.howManyStudents} Students</span>
-                      <div
-                        style={{
-                          display: "flex",
-                          justifyContent: "space-between",
-                        }}
-                      >
-                        {item?.availableTime[0]?.day?.map((name) => (
-                          <div
-                            key={name}
-                            style={{
-                              display: "flex",
-                              flexDirection: "column",
-                              gap: "10px",
-                              alignItems: "center",
-                            }}
-                          >
-                            <div
-                              style={{
-                                width: "10px",
-                                height: "10px",
-                                background: "#F87F98",
-                                borderRadius: "50%",
-                              }}
-                            ></div>
-                            <span>{name.slice(0, 3)}</span>
-                          </div>
-                        ))}
-                      </div>
-                      <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "space-between",
-                        }}
-                      >
-                        <span style={{ fontSize: "18px", fontWeight: "bold" }}>
-                          {item.price}{" "}
-                          <span style={{ fontSize: "11px" }}>ETB</span>
-                        </span>
-                        <span>{item?.userWhoHasEnrolled?.length} Student</span>
                       </div>
                     </div>
                   ))}

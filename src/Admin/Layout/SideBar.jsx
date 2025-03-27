@@ -413,6 +413,25 @@ const SideBar = ({ drawerOpen, setDrawerOpen }) => {
               </li>
             </NavLink>
             <NavLink
+              to={"/admin/enroll"}
+              style={{
+                color: course ? "#DFA035" : "",
+                background: course ? "#F1F5F9" : "",
+                borderRadius: "10px",
+              }}
+            >
+              <li
+                style={{
+                  padding: "8px 15px",
+                  display: "flex",
+                  gap: "10px",
+                  alignItems: "center",
+                }}
+              >
+                <FaBook /> Enroll
+              </li>
+            </NavLink>
+            <NavLink
               to={"/admin/transaction_list"}
               style={{
                 color: review ? "#DFA035" : "",

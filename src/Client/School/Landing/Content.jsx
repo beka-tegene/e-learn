@@ -17,7 +17,7 @@ const Content = () => {
               <img
                 loading="lazy"
                 className="aboutimg__1"
-                src="/assets/img/company.png"
+                src="/assets/img/default-course-thumbnail.png"
                 alt="aboutimg"
               />
             </div>
