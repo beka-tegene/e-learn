@@ -29,13 +29,13 @@ const Landing = () => {
   return (
     <div>
       <Navbar />
-      <Hero />
+      <Hero pageData={pageData.heroSection} />
       {/* <Highlight /> */}
       <PopularCourses />
       <LetUsHelpOne />
-      <AboutSection />
+      <AboutSection pageData={pageData} />
       <NewsletterArea />
-      <CategoriesArea />
+      <CategoriesArea pageData={pageData}/>
       <div className=" d-none d-lg-block">
         <Footer />
       </div>

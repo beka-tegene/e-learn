@@ -8,12 +8,7 @@ import image5 from "/assets/img/slider-shape-1.jpg";
 import image6 from "/assets/img/slider-shape-2.jpg";
 import image7 from "/assets/img/segen-1 1.png";
 import Slider from "react-slick";
-const Hero = () => {
-  useEffect(() => {
-    document.title = "keberew university";
-    localStorage.setItem("attemptedUrl", location.pathname);
-  }, []);
-
+const Hero = ({ pageData }) => {
   return (
     <section
       className="slider__height-1 include-bg d-flex align-items-center "
@@ -25,13 +20,8 @@ const Hero = () => {
           <div className="col-xxl-6 col-lg-6 fadeIn">
             <div className="slider__content-2 mt-30">
               <span>The Leader in Online Learning</span>
-              <h3 className="slider__title-2">
-                Build an Incredible Learning Experience
-              </h3>
-              <p>
-                The right mentoring relationship can be a powerful tool for
-                Professional growth. Bark up the right tree.
-              </p>
+              <h3 className="slider__title-2">{pageData?.title}</h3>
+              <p>{pageData?.subtitle}</p>
               <NavLink to="/courses" className="tp-btn-green">
                 Explore Coureses
               </NavLink>
@@ -48,7 +38,7 @@ const Hero = () => {
                 <img className="slider__shape-5" src={image6} alt="" />
               </div>
               <span className="slider__thumb-mask">
-                <img src={image7} alt="" />
+                <img src={pageData?.imageUrl} alt="" />
               </span>
             </div>
           </div>

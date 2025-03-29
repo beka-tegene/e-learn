@@ -361,8 +361,8 @@ const Instructor_Register = () => {
                     type="radio"
                     name="payment"
                     id="40"
-                    value="kegebrew University"
-                    checked={selectedAgreement === "kegebrew University"}
+                    value="fancypastryacademy"
+                    checked={selectedAgreement === "fancypastryacademy"}
                     onChange={(e) => setSelectedAgreement(e.target.value)}
                     style={{
                       border: `${errors.selectedAgreement && "1px solid red"}`,
@@ -372,7 +372,7 @@ const Instructor_Register = () => {
                   />
                   <label htmlFor="40">40% for Instructor</label>
                 </div>
-                {selectedAgreement === "kegebrew University" && (
+                {selectedAgreement === "fancypastryacademy" && (
                   <p style={{ padding: "10px 1rem", fontSize: "14px" }}>
                     This deal will be applied if the instructor requires
                     course-making equipment from the provider, for example,
