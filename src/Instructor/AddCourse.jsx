@@ -92,14 +92,15 @@ const AddCourse = () => {
     formData.append("createCourseas", "individual");
     formData.append("role", role);
     try {
-      dispatch(setCourse(formData));
+      await dispatch(setCourse(formData));
     } catch (error) {
       toast.error("something went wrong");
-    } finally{
-      setInterval(()=>{
+    } finally {
+      setTimeout(() => {
         setLoadingLogin(false);
-      },2000)
+      }, 2000);
     }
+    
   };
 
   return (

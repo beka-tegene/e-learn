@@ -469,6 +469,26 @@ const SideBar = ({ drawerOpen, setDrawerOpen }) => {
                 <MdContactMail /> Contact
               </li>
             </NavLink>
+            <NavLink
+  to={"/admin/page-update"}
+  style={{
+    color: window.location.pathname === "/admin/page-update" ? "#DFA035" : "",
+    background: window.location.pathname === "/admin/page-update" ? "#F1F5F9" : "",
+    borderRadius: "10px",
+  }}
+>
+  <li
+    style={{
+      padding: "8px 15px",
+      display: "flex",
+      gap: "10px",
+      alignItems: "center",
+    }}
+  >
+    <FaBook /> Page Update
+  </li>
+</NavLink>
+
             <NavLink>
               <li
                 style={{
