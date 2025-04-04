@@ -41,6 +41,8 @@ const LessonView = () => {
   const usersById = useSelector(
     (state) => state.UserHook.OutputUserCoursesById
   );
+  console.log(usersById);
+  
   useEffect(() => {
     dispatch(
       getUserCourseByIdData({ data: { courseId: decryptedId, userId } })

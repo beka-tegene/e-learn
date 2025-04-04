@@ -76,7 +76,6 @@ const CourseContent = ({ dataHandler }) => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.UserHook.OutputUsers);
   const usersCourse = useSelector((state) => state.UserHook.OutputUserCourses);
-  console.log(usersCourse);
   
   const token = Cookies.get("token");
   const decodedToken = jwt_decode(token);
@@ -100,11 +99,10 @@ const CourseContent = ({ dataHandler }) => {
     fetchData();
   }, [token]);
   dataHandler(user);
-  console.log(instructorTutor);
-  const filterCourse = usersCourse?.enrolledCourses?.filter(
+  const filterCourse = usersCourse?.data?.enrolledCourses?.filter(
     (item) => item.progress >= 100.0
   );
-  const ActiveFilterCourse = usersCourse?.enrolledCourses?.filter(
+  const ActiveFilterCourse = usersCourse?.data?.enrolledCourses?.filter(
     (item) => item.progress < 100.0
   );
 
@@ -127,7 +125,7 @@ const CourseContent = ({ dataHandler }) => {
                 <div className="counter__content__wraper">
                   <div className="counter__number">
                     <span className="counter">
-                      {usersCourse?.enrolledCourses?.length}
+                      {usersCourse?.data?.enrolledCourses?.length}
                     </span>
                     +
                   </div>
@@ -278,7 +276,7 @@ const CourseContent = ({ dataHandler }) => {
                 aria-labelledby="projects__one"
               >
                 <div className="row">
-                  {usersCourse?.enrolledCourses?.map((item, index) => (
+                  {usersCourse?.data?.enrolledCourses?.map((item, index) => (
                     <div
                       className="col-xl-4 col-lg-6 col-md-6 col-12"
                       key={index}

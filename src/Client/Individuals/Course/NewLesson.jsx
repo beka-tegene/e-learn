@@ -48,6 +48,8 @@ const NewLesson = () => {
   const usersById = useSelector(
     (state) => state.UserHook.OutputUserCoursesById
   );
+  console.log(usersById);
+
   const currentLessons = usersById?.lesson?.filter(
     (item) => item?.lessonId && item?.progress < 99
   );
