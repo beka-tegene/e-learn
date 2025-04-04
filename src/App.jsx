@@ -134,6 +134,8 @@ import AdminDetailTutor from "./Page/Admin/AdminDetailTutor";
 import CompanyQuizAdd from "./Page/Client/BusinessSide/CompanyQuizAdd";
 import CompanyQuizzesAdding from "./Page/Client/BusinessSide/CompanyQuizzesAdding";
 import AdminCourseEnroll from "./Page/Admin/AdminCourseEnroll";
+import AdminPageUpdate from "./Page/Admin/AdminPageUpdate";
+
 
 function App() {
   const token = Cookies.get("token") || "guest";
@@ -503,6 +505,10 @@ function App() {
         <Route
           path="/admin/enroll"
           element={role === "admin" ? <AdminCourseEnroll /> : <Navigate to="/" />}
+        />
+        <Route
+          path="/admin/page-update"
+          element={role === "admin" ? <AdminPageUpdate /> : <Navigate to="/" />}
         />
         <Route
           path="/admin/course_list/:id"
