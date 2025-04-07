@@ -40,6 +40,7 @@ const PageUpdate = () => {
     email: "",
     logo: null,
     aboutImage: null,
+    heroImage: null, // ✅ NEW FIELD
   });
 
   const handleChange = (e) => {
@@ -54,16 +55,15 @@ const PageUpdate = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = new FormData();
-  
     let hasData = false;
-  
+
     const appendIfFilled = (key, value) => {
       if (value !== null && value !== "" && value !== undefined) {
         data.append(key, value);
         hasData = true;
       }
     };
-  
+
     appendIfFilled("heroSection[title]", form.heroTitle);
     appendIfFilled("heroSection[subtitle]", form.heroSubtitle);
     appendIfFilled("about[0][name]", form.aboutName);
@@ -76,17 +76,16 @@ const PageUpdate = () => {
     appendIfFilled("contactUs[email]", form.email);
     appendIfFilled("logo", form.logo);
     appendIfFilled("aboutImage0", form.aboutImage);
-  
+    appendIfFilled("heroImage", form.heroImage); // ✅ NEW APPEND
+
     if (!hasData) {
       toast.warning("Please fill in at least one field before submitting.");
       return;
     }
-  
+
     try {
       const response = await axios.put(
         `${back_base_url}api/v1/page/update`,
-    //   "http://localhost:4500/api/v1/page/update",
-
         data,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -100,7 +99,6 @@ const PageUpdate = () => {
       console.error(error);
     }
   };
-  
 
   const nextStep = () => setStep((prev) => prev + 1);
   const prevStep = () => setStep((prev) => prev - 1);
@@ -108,9 +106,7 @@ const PageUpdate = () => {
   return (
     <div style={{ padding: "40px", maxWidth: "900px", margin: "auto" }}>
       <ToastContainer />
-      <h2 style={{ marginBottom: "30px", fontSize: "24px" }}>
-        Update Page Content
-      </h2>
+      <h2 style={{ marginBottom: "30px", fontSize: "24px" }}>Update Page Content</h2>
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         {step === 1 && (
           <>
@@ -193,11 +189,14 @@ const PageUpdate = () => {
                 <label style={labelStyle}>About Image</label>
                 <input type="file" name="aboutImage" accept="image/*" onChange={handleChange} style={inputStyle} />
               </div>
+              <div>
+                <label style={labelStyle}>Hero Image</label>
+                <input type="file" name="heroImage" accept="image/*" onChange={handleChange} style={inputStyle} />
+              </div>
             </div>
           </>
         )}
 
-        {/* Navigation + Submit Buttons */}
         <div style={{ marginTop: "40px", display: "flex", gap: "20px", flexWrap: "wrap" }}>
           {step > 1 && (
             <button
@@ -233,7 +232,6 @@ const PageUpdate = () => {
             </button>
           )}
 
-          {/* Show Update Page on all steps */}
           <button
             type="submit"
             style={{

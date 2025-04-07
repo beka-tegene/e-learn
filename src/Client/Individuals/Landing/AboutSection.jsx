@@ -1,6 +1,5 @@
 import { Fragment } from "react";
-import image1 from "/assets/img/about_img01-2.png";
-import image2 from "/assets/img/about_img01-3.png";
+// import image1 from "/assets/img/about_img01-2.png";
 import image3 from "/assets/img/title_shape.svg";
 import image4 from "/assets/img/btn-arrow.svg";
 
@@ -12,12 +11,19 @@ const AboutSection = ({ pageData }) => {
           <div className="row align-items-center justify-content-center">
             <div className="col-xl-6 col-lg-8">
               <div className="about__images">
-                <img
+                {/* <img
                   className="small-img tg-motion-effects3"
                   src={image1}
                   alt="img"
+                /> */}
+
+                {/* ✅ Dynamically loaded image from API */}
+                <img
+                  className="big-img"
+                  src={pageData?.about?.[0]?.imageUrl}
+                  alt="about"
                 />
-                <img className="big-img" src={image2} alt="img" />
+
                 <div className="about__exp">
                   <svg
                     width={126}
@@ -36,6 +42,7 @@ const AboutSection = ({ pageData }) => {
                   </h4>
                   <p>Years of Experiences</p>
                 </div>
+
                 <svg
                   className="circle tg-motion-effects1"
                   width={344}
@@ -56,47 +63,17 @@ const AboutSection = ({ pageData }) => {
                 </svg>
               </div>
             </div>
+
             <div className="col-xl-6 col-lg-7">
               <div className="about__content">
                 <div className="section__title">
                   <span className="sub-title">Get To Know About Us</span>
-                  <h2 className="title tg-svg">{pageData?.about?.[0]?.name}</h2>
+                  <h2 className="title tg-svg">
+                    {pageData?.about?.[0]?.name}
+                  </h2>
                 </div>
                 <p className="desc">{pageData?.about?.[0]?.description}</p>
-                {/* <ul className="about__info-list list-wrap">
-                    <li className="about__info-list-item">
-                      <div className="icon">
-                        <i className="flaticon-support" />
-                      </div>
-                      <p className="content">
-                        20+ <br /> Expert Tutors
-                      </p>
-                    </li>
-                    <li className="about__info-list-item">
-                      <div className="icon">
-                        <i className="flaticon-file" />
-                      </div>
-                      <p className="content">
-                        15+ <br /> Top Lessons
-                      </p>
-                    </li>
-                    <li className="about__info-list-item">
-                      <div className="icon">
-                        <i className="flaticon-graduation-cap" />
-                      </div>
-                      <p className="content">
-                        200+ <br /> Over Students
-                      </p>
-                    </li>
-                    <li className="about__info-list-item">
-                      <div className="icon">
-                        <i className="flaticon-video-player" />
-                      </div>
-                      <p className="content">
-                        32+ <br /> Pro Videos
-                      </p>
-                    </li>
-                  </ul> */}
+
                 <div className="tg-button-wrap">
                   <a href="/aboutus" className="btn tg-svg">
                     <span className="text">Discover More</span>{" "}
